@@ -31,7 +31,7 @@ public class UserClient {
     }
 
     @Step("Login a user with POST request to /api/auth/login")
-    public static Response login(UserForLogin user, String bearerToken) {
+    public static Response login(UserForLogin user) {
         return request
                 .body(user)
                 .post(Constants.USER_LOGIN_REQUEST);
