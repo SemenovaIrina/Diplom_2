@@ -1,2 +1,4 @@
-package edu.practicum;public class UserLoginTest {
+package edu.practicum;
+
+public class UserLoginTest {
 }
