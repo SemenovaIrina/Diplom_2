@@ -40,7 +40,7 @@ public class TestDataForUser {
         );
     }
 
-    public static Stream<Arguments> getUserDataWithoutRequiredFild() {
+    public static Stream<Arguments> getUserDataWithoutRequiredField() {
         Random rnd = new Random();
         return Stream.of(
                 arguments(new User.Builder()
