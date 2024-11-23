@@ -20,8 +20,10 @@ public class UserCreateTest {
     @Description("Checking the creation of a user with correct data")
     public void createNewUserWithCorrectData(User user) {
         userAfterCreate = checksCorrectCreateAndLoginUser(user);
+        //сформируем дополнительную спецификацию для аторизованных запросов (добавим токен в заголовок всех последующих запросов для этого user)
+        UserClient.addBearerTokenInHeader(userAfterCreate.getAccessToken());
         //удялем созданного пользователя
-        UserClient.delete(userAfterCreate.getAccessToken());
+        UserClient.delete();
     }
 
     @ParameterizedTest
@@ -35,8 +37,10 @@ public class UserCreateTest {
         Assertions.assertEquals(403, response.statusCode(), "Получаемый статус код при повторном создании пользователя не соответствует ожидаемому");
         //проверяем тело ответа
         response.then().assertThat().body("message", equalTo("User already exists"));
+        //сформируем дополнительную спецификацию для аторизованных запросов (добавим токен в заголовок всех последующих запросов для этого user)
+        UserClient.addBearerTokenInHeader(userAfterCreate.getAccessToken());
         //удаляем созданного пользователя
-        UserClient.delete(userAfterCreate.getAccessToken());
+        UserClient.delete();
     }
 
     @ParameterizedTest
