@@ -16,7 +16,7 @@ public class UserCreateTest {
     private UserAfterCreate userAfterCreate;
 
     @ParameterizedTest
-    @MethodSource("edu.practicum.general.TestDataForUser#getCorrectUserData")
+    @MethodSource("edu.practicum.general.DataForUser#getCorrectUserData")
     @Description("Checking the creation of a user with correct data")
     public void createNewUserWithCorrectData(User user) {
         userAfterCreate = checksCorrectCreateAndLoginUser(user);
@@ -27,7 +27,7 @@ public class UserCreateTest {
     }
 
     @ParameterizedTest
-    @MethodSource("edu.practicum.general.TestDataForUser#getEqualUserData")
+    @MethodSource("edu.practicum.general.DataForUser#getEqualUserData")
     @Description("Checking if it is impossible to create two identical users")
     public void createTwoEqualUserNotPossible(User user1, User user2) {
         userAfterCreate = checksCorrectCreateAndLoginUser(user1);
@@ -44,7 +44,7 @@ public class UserCreateTest {
     }
 
     @ParameterizedTest
-    @MethodSource("edu.practicum.general.TestDataForUser#getUserDataWithoutRequiredField")
+    @MethodSource("edu.practicum.general.DataForUser#getUserDataWithoutRequiredField")
     @Description("Checking if it is impossible to create a user without a required field")
     public void createNewUserWithoutRequiredFildNotPossible(User user) {
         //выполняем запрос на создание пользователя

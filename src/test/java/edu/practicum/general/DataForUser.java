@@ -10,7 +10,7 @@ import static edu.practicum.data.UtilsForDataPrepare.emailRandom;
 import static edu.practicum.data.UtilsForDataPrepare.stringRandomGenerate;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
-public class TestDataForUser {
+public class DataForUser {
     public static Stream<Arguments> getCorrectUserData() {
         Random rnd = new Random();
         return Stream.of(

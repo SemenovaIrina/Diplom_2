@@ -32,7 +32,7 @@ public class UserUpdateTest {
 
     @BeforeAll
     public static void setUp() {
-        //чтобы проверять логин пользователя нужно чтобы он был успешно создан и мог залогиниться
+        //чтобы осуществлять авторизованные запросы, нужно чтобы пользователь был успешно создан и мог залогиниться
         //делать это не нужно перед каждым тестом, достаточно один раз перед всеми тестами
         userAfterCreate = checksCorrectCreateAndLoginUser(user); // возвращается user без лишнего в токене
         //сформируем дополнительную спецификацию для аторизованных запросов (добавим токен в заголовок всех последующих запросов для этого user)
@@ -40,7 +40,7 @@ public class UserUpdateTest {
     }
 
     @ParameterizedTest
-    @MethodSource("edu.practicum.general.TestDataForUser#getUserDataForUpdate")
+    @MethodSource("edu.practicum.general.DataForUser#getUserDataForUpdate")
     @Description("Checking the possibility of changing your data for a registered user")
     public void changeUserDataForRegisteredUserPossible(String user) {
         //выполняем запрос на обновление данных пользователя
@@ -54,7 +54,7 @@ public class UserUpdateTest {
     }
 
     @ParameterizedTest
-    @MethodSource("edu.practicum.general.TestDataForUser#getUserDataForUpdate")
+    @MethodSource("edu.practicum.general.DataForUser#getUserDataForUpdate")
     @Description("Checking the possibility of changing your data for a unregistered user")
     public void changeUserDataForUnregisteredUserNotPossible(String user) {
         //выполняем запрос на обновление данных пользователя

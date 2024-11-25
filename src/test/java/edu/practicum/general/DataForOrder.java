@@ -13,7 +13,7 @@ import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestDataForOrder {
+public class DataForOrder {
     public static ArrayList<String> ingredientListGenerate() {
         Random rnd = new Random();
         ArrayList<String> randomListIngredient = new ArrayList<String>();
@@ -25,7 +25,7 @@ public class TestDataForOrder {
         assertEquals(response.as(IngredientListInAmswer.class).getClass(), IngredientListInAmswer.class, "Структура ответа не соответствует ожидаемой");
         IngredientListInAmswer ingredientList = response.as(IngredientListInAmswer.class);
         int ingredientListSize = ingredientList.getData().size();
-        int count = rnd.nextInt(ingredientListSize)+1;
+        int count = rnd.nextInt(ingredientListSize) + 1;
         for (int i = 0; i < count; i++) {
             randomListIngredient.add(ingredientList.getData().get(rnd.nextInt(ingredientListSize)).get_id());
         }

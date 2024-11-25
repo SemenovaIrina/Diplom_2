@@ -38,7 +38,6 @@ public class UserLoginTest {
         //чтобы проверять логин пользователя нужно чтобы он был успешно создан и мог залогиниться
         //делать это не нужно перед каждым тестом, достаточно один раз перед всеми тестами
         userAfterCreate = checksCorrectCreateAndLoginUser(user);
-        //userAfterCreate.setAccessToken(userAfterCreate.getAccessToken()); //убираем все лишнее из токена в ответе
     }
 
     public static Stream<Arguments> getUserDataForLoginWithoutRequiredField() {
@@ -108,8 +107,6 @@ public class UserLoginTest {
 
     @AfterAll
     public static void tearDown() {
-        //сформируем дополнительную спецификацию для аторизованных запросов (добавим токен в заголовок всех последующих запросов для этого user)
-        UserClient.addBearerTokenInHeader(userAfterCreate.getAccessToken());
         UserClient.delete();
     }
 
