@@ -11,18 +11,18 @@ import io.restassured.specification.RequestSpecification;
 import static io.restassured.RestAssured.given;
 
 public class UserClient {
-    private static RequestSpecification request = given(Constants.REQUEST_SPEC).log().all();
-    private static RequestSpecification requestWithAuth = given(Constants.REQUEST_SPEC).log().all();
+    private static RequestSpecification request = given(Constants.REQUEST_SPEC);
+    private static RequestSpecification requestWithAuth = given(Constants.REQUEST_SPEC);
 
-    @Step("Update a user data for registered user with PATCH request to /api/auth/user")
     public static void addBearerTokenInHeader(String bearerToken) {
+        requestWithAuth = given(Constants.REQUEST_SPEC);
         requestWithAuth = requestWithAuth
                 .headers(
                         "Authorization",
                         "Bearer " + bearerToken);
     }
 
-    @Step("Creating a user with POST request to /api/auth/register")
+    @Step("Create a user with POST request to /api/auth/register")
     public static Response create(User user) {
         return request
                 .body(user)
@@ -61,5 +61,9 @@ public class UserClient {
         return request
                 .body(user)
                 .patch(Constants.USER_UPDATE_REQUEST);
+    }
+
+    public static RequestSpecification getRequest() {
+        return request;
     }
 }
