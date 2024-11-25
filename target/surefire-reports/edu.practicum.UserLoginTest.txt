@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: edu.practicum.UserLoginTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 16.066 s <<< FAILURE! - in edu.practicum.UserLoginTest
+loginUserWithErrorInDataNotPossible{UserForLogin}[1]  Time elapsed: 3.972 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Получаемый статус код при логине пользователя не соответствует ожидаемому ==> expected: <401> but was: <200>
+	at edu.practicum.UserLoginTest.loginUserWithErrorInDataNotPossible(UserLoginTest.java:94)
+

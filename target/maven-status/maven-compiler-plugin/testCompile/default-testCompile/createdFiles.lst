@@ -1,0 +1,9 @@
+edu\practicum\UserUpdateTest.class
+edu\practicum\general\DataForUser.class
+edu\practicum\OrderListForUserTest.class
+edu\practicum\UserLoginTest.class
+edu\practicum\general\DataForOrder.class
+edu\practicum\UserCreateTest.class
+edu\practicum\general\Checks.class
+edu\practicum\OrderCreateWithoutAuthTest.class
+edu\practicum\OrderCreateWithAuthTest.class
