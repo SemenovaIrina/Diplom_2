@@ -59,4 +59,13 @@ public class TestDataForUser {
                         .build())
         );
     }
+
+    public static Stream<String> getUserDataForUpdate() {
+        Random rnd = new Random();
+        return Stream.of(
+                ("{\"email\":\"" + emailRandom(rnd.nextInt(254) + 1) + "\"}"),
+                ("{\"name\":\"" + stringRandomGenerate(rnd.nextInt(254) + 1) + "\"}"),
+                ("{\"password\":\"" + stringRandomGenerate(rnd.nextInt(254) + 1) + "\"}")
+        );
+    }
 }
